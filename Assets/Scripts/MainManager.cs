@@ -66,11 +66,23 @@ public class MainManager : MonoBehaviour
     {
         m_Points += point;
         ScoreText.text = $"Score : {m_Points}";
+
+        NewScore(m_Points);
     }
+
 
     public void GameOver()
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
+
+    public void NewScore(int points)
+{
+    if(points > ScoreManager.Instance.score)
+    {
+        ScoreManager.Instance.score = points;
+    }
+}
+
 }
